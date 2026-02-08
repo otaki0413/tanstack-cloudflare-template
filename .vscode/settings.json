@@ -10,7 +10,7 @@
     "**/routeTree.gen.ts": true
   },
   "cSpell.ignorePaths": ["pnpm-lock.yaml", "**/routeTree.gen.ts"],
-  "cSpell.words": ["Lefthook", "oxfmt", "oxlint", "stylesheet"],
+  "cSpell.words": ["Lefthook", "oxfmt", "oxlint", "stylesheet", "tsgolint"],
 
   // oxc
   "oxc.enable": true,
