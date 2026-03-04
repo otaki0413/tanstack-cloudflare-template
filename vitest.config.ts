@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [viteTsConfigPaths({ projects: ["./tsconfig.json"] }), viteReact()],
   test: {
     environment: "jsdom",
+    passWithNoTests: true,
   },
 });
