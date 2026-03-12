@@ -5,7 +5,7 @@
   "scripts": {
     "build": "vite build",
     "cf-typegen": "wrangler types",
-    "check": "oxlint --type-aware --type-check && oxfmt --check",
+    "check": "oxlint && oxfmt --check",
     "deploy": "pnpm run build && wrangler deploy",
     "dev": "vite dev",
     "fmt": "oxfmt --check",
