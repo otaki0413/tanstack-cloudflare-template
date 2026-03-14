@@ -6,7 +6,7 @@ A template for SSR-ready React applications powered by TanStack Start and Cloudf
 
 - **Framework**: [TanStack Start](https://tanstack.com/start) (React 19)
 - **Routing**: [TanStack Router](https://tanstack.com/router) (file-based)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) v4
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Hosting**: [Cloudflare Workers](https://developers.cloudflare.com/workers/)
 - **Build**: [Vite](https://vite.dev/)
 - **Testing**: [Vitest](https://vitest.dev/) + Testing Library
