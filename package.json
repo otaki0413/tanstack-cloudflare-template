@@ -18,9 +18,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.168.1",
+    "@tanstack/react-router": "^1.168.3",
     "@tanstack/react-router-devtools": "^1.166.10",
-    "@tanstack/react-start": "^1.167.2",
+    "@tanstack/react-start": "^1.167.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
@@ -38,11 +38,11 @@
     "lefthook": "2.1.4",
     "oxfmt": "0.41.0",
     "oxlint": "1.56.0",
-    "oxlint-tsgolint": "0.17.1",
+    "oxlint-tsgolint": "0.17.2",
     "tailwindcss": "4.2.2",
-    "typescript": "5.9.3",
-    "vite": "8.0.1",
-    "vitest": "4.1.0",
+    "typescript": "6.0.2",
+    "vite": "8.0.2",
+    "vitest": "4.1.1",
     "wrangler": "4.76.0"
   },
   "packageManager": "pnpm@10.32.1"
