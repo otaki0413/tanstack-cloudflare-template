@@ -37,7 +37,7 @@
     "jsdom": "29.0.2",
     "lefthook": "2.1.5",
     "oxfmt": "0.45.0",
-    "oxlint": "1.59.0",
+    "oxlint": "1.60.0",
     "oxlint-tsgolint": "0.20.0",
     "tailwindcss": "4.2.2",
     "typescript": "6.0.2",
