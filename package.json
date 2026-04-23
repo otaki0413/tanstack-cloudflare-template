@@ -25,8 +25,8 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.33.0",
-    "@tailwindcss/vite": "4.2.3",
+    "@cloudflare/vite-plugin": "1.33.1",
+    "@tailwindcss/vite": "4.2.4",
     "@tanstack/devtools-vite": "0.6.0",
     "@testing-library/dom": "10.4.1",
     "@testing-library/react": "16.3.2",
@@ -37,13 +37,13 @@
     "jsdom": "29.0.2",
     "lefthook": "2.1.6",
     "oxfmt": "0.46.0",
-    "oxlint": "1.60.0",
+    "oxlint": "1.61.0",
     "oxlint-tsgolint": "0.21.1",
-    "tailwindcss": "4.2.3",
+    "tailwindcss": "4.2.4",
     "typescript": "6.0.3",
     "vite": "8.0.9",
-    "vitest": "4.1.4",
-    "wrangler": "4.84.0"
+    "vitest": "4.1.5",
+    "wrangler": "4.84.1"
   },
   "packageManager": "pnpm@10.33.0"
 }
