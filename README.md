@@ -8,28 +8,39 @@ A template for SSR-ready React applications powered by TanStack Start and Cloudf
 - **Routing**: [TanStack Router](https://tanstack.com/router) (file-based)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Hosting**: [Cloudflare Workers](https://developers.cloudflare.com/workers/)
-- **Build**: [Vite](https://vite.dev/)
-- **Testing**: [Vitest](https://vitest.dev/) + Testing Library
-- **Lint / Format**: [oxlint](https://oxc.rs/docs/guide/usage/linter) / [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
-- **Git Hooks**: [Lefthook](https://github.com/evilmartians/lefthook)
-- **Package Manager**: pnpm
+- **Toolchain**: [Vite+](https://viteplus.dev/) (`vp` — Vite, Vitest, Oxlint, Oxfmt)
+- **Git Hooks**: Vite+ hooks (`vp staged` / `.vite-hooks`)
+- **Package Manager**: pnpm (via `vp install`)
+
+## Prerequisites
+
+Install the Vite+ CLI once:
+
+```bash
+curl -fsSL https://vite.plus | bash
+```
+
+Then open a new shell (or ensure `~/.vite-plus/bin` is on your `PATH`) and run `vp help`.
 
 ## Development
 
 ```bash
-pnpm install        # Install dependencies
-pnpm dev            # Start dev server
-pnpm build          # Production build
-pnpm preview        # Preview production build
-pnpm deploy         # Deploy to Cloudflare Workers
-pnpm test           # Run tests
-pnpm lint           # Run linter
-pnpm lint:fix       # Auto-fix lint issues
-pnpm fmt            # Check formatting
-pnpm fmt:fix        # Auto-fix formatting
-pnpm check          # Run lint + format check
-pnpm cf-typegen     # Generate Cloudflare bindings types
+vp install        # Install dependencies
+vp run prepare    # Install Git hook dispatcher (also runs via prepare)
+vp dev            # Start dev server
+vp build          # Production build
+vp preview        # Preview production build
+vp run deploy     # Deploy to Cloudflare Workers
+vp test           # Run tests
+vp lint           # Run linter
+vp lint --fix     # Auto-fix lint issues
+vp fmt --check    # Check formatting
+vp fmt --write    # Auto-fix formatting
+vp check          # Format + lint + type-check
+vp run cf-typegen # Generate Cloudflare bindings types
 ```
+
+`package.json` scripts still work through pnpm (`pnpm dev`, `pnpm check`, …) or `vp run <script>`. Prefer the `vp` built-ins above for day-to-day work.
 
 ## Project Structure
 
@@ -38,6 +49,10 @@ src/
   routes/         # File-based routing
   router.tsx      # Router configuration
   styles.css      # Global styles
+.vite-hooks/      # Project-owned Git hooks (pre-commit / pre-push)
 wrangler.jsonc    # Cloudflare Workers config
-vite.config.ts    # Vite config
+vite.config.ts    # Vite+ config (dev/build/lint/fmt/staged)
+vitest.config.ts  # Vitest config
 ```
+
+// staged-smoke
