@@ -29,5 +29,5 @@ Non-obvious caveats for this environment:
   `src/routes/__root.tsx`.
 
 - `vp test` / `pnpm test` uses Vitest with `passWithNoTests: true`, so it currently
-  exits 0 with no test files. `vp build` builds both the client and SSR (workerd)
-  bundles.
+  exits 0 with no test files. Import `test` / `expect` from `vite-plus/test`, not
+  `vitest`. `vp build` builds both the client and SSR (workerd) bundles.
