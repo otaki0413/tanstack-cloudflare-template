@@ -4,8 +4,8 @@
 
 This is a single-service app: a TanStack Start (React 19) SSR application that runs on
 Cloudflare Workers, built with Vite+ (`vp`). Prefer the `vp` built-ins documented in
-`README.md` (`vp install`, `vp dev`, `vp build`, `vp test`, `vp lint`, `vp fmt`,
-`vp check`). `package.json` scripts still work via `pnpm <script>` or `vp run <script>`.
+`README.md` (`vp install`, `vp dev`, `vp build`, `vp test`, `vp check`).
+`package.json` scripts still work via `pnpm <script>` or `vp run <script>`.
 
 Non-obvious caveats for this environment:
 
@@ -29,5 +29,5 @@ Non-obvious caveats for this environment:
   `src/routes/__root.tsx`.
 
 - `vp test` / `pnpm test` uses Vitest with `passWithNoTests: true`, so it currently
-  exits 0 with no test files. `vp build` builds both the client and SSR (workerd)
-  bundles.
+  exits 0 with no test files. Import `test` / `expect` from `vite-plus/test`, not
+  `vitest`. `vp build` builds both the client and SSR (workerd) bundles.

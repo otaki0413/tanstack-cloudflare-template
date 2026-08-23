@@ -53,17 +53,24 @@ export default defineConfig({
     ],
   },
   staged: {
-    "*.{js,jsx,ts,tsx}": "vp lint",
-    "*.{js,jsx,ts,tsx,json,css}": "vp fmt --check",
+    "*.{js,jsx,ts,tsx,json,css}": "vp check --fix",
   },
-  plugins: lazyPlugins(() => [
-    devtools(),
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
-    tailwindcss(),
-    tanstackStart(),
-    viteReact(),
-  ]),
+  plugins: lazyPlugins(() =>
+    process.env.VITEST
+      ? [viteReact()]
+      : [
+          devtools(),
+          cloudflare({ viteEnvironment: { name: "ssr" } }),
+          tailwindcss(),
+          tanstackStart(),
+          viteReact(),
+        ],
+  ),
   resolve: {
     tsconfigPaths: true,
+  },
+  test: {
+    environment: "jsdom",
+    passWithNoTests: true,
   },
 });
