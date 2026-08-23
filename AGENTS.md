@@ -3,30 +3,31 @@
 ## Cursor Cloud specific instructions
 
 This is a single-service app: a TanStack Start (React 19) SSR application that runs on
-Cloudflare Workers, built with Vite. Standard commands live in `package.json` `scripts`
-and are documented in `README.md` (`pnpm dev`, `pnpm build`, `pnpm test`, `pnpm lint`,
-`pnpm fmt`, `pnpm check`). Prefer those over reinventing commands.
+Cloudflare Workers, built with Vite+ (`vp`). Prefer the `vp` built-ins documented in
+`README.md` (`vp install`, `vp dev`, `vp build`, `vp test`, `vp lint`, `vp fmt`,
+`vp check`). `package.json` scripts still work via `pnpm <script>` or `vp run <script>`.
 
 Non-obvious caveats for this environment:
 
-- Node version: `oxlint` and `oxfmt` load `*.config.ts` files and require Node
-  `^20.19.0 || >=22.18.0`. The default `/exec-daemon/node` is v22.14.0, which is too old
-  and makes `pnpm lint` / `pnpm fmt` / `pnpm check` fail with an "Unknown file extension
-  .ts" error. During setup, nvm's default was set to Node 22 (v22.23.2) and `~/.bashrc`
-  prepends that nvm bin to `PATH` so new shells use it automatically. If a command ever
-  reports the old Node version, run `nvm use default` (or start a fresh shell).
+- Node / `vp` on PATH: ensure `~/.vite-plus/bin` is available (install with
+  `curl -fsSL https://vite.plus | bash`). The default `/exec-daemon/node` is v22.14.0,
+  which is too old for some tooling; nvm's default is Node 22 (v22.23.2) and
+  `~/.bashrc` prepends that nvm bin (and Vite+ bin) to `PATH`. If a command reports
+  the old Node version, run `nvm use default` (or start a fresh shell). Project CI
+  uses Node 24.19.0 via `setup-vp`.
 
-- `lefthook install` is expected to fail here. The project `postinstall` runs
-  `lefthook install`, but Cursor manages git hooks via a custom `core.hooksPath`, which
-  lefthook refuses to override. This is benign for development (it only affects local git
-  hooks). The startup update script therefore installs with `--ignore-scripts` and then
-  runs `pnpm rebuild` for the native build deps, avoiding the failing root postinstall
-  while still building `esbuild`/`workerd`/`sharp`. Do not "fix" this by forcing lefthook
-  into Cursor's hooks path.
+- Git hooks: the project uses Vite+ hooks (`.vite-hooks/` + `prepare: vp config`).
+  Cursor manages `core.hooksPath` via a custom agent-hooks path, so `vp hooks enable`
+  / `vp config` may leave that path unchanged here. That is benign for Cloud Agents
+  (hooks still work for normal local clones). Do not force-overwrite Cursor's
+  `core.hooksPath`. Startup install may use `--ignore-scripts` then `pnpm rebuild`
+  for native deps (`esbuild` / `workerd` / `sharp`) if lifecycle scripts are noisy.
 
-- Dev server: `pnpm dev` serves on `http://localhost:5173/` (Vite default), not 3000.
-  It renders SSR HTML directly (curling `/` returns "Hello World!"). Unknown routes render
-  the custom 404 component from `src/routes/__root.tsx`.
+- Dev server: `vp dev` (or `pnpm dev`) serves on `http://localhost:5173/` (Vite
+  default), not 3000. It renders SSR HTML directly (curling `/` returns
+  "Hello World!"). Unknown routes render the custom 404 component from
+  `src/routes/__root.tsx`.
 
-- `pnpm test` uses Vitest with `passWithNoTests: true`, so it currently exits 0 with no
-  test files. `pnpm build` builds both the client and SSR (workerd) bundles.
+- `vp test` / `pnpm test` uses Vitest with `passWithNoTests: true`, so it currently
+  exits 0 with no test files. `vp build` builds both the client and SSR (workerd)
+  bundles.
