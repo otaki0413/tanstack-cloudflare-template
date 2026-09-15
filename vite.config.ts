@@ -70,7 +70,6 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   test: {
-    environment: "jsdom",
     passWithNoTests: true,
   },
 });

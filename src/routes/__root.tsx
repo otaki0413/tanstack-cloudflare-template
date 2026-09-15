@@ -1,4 +1,9 @@
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import {
+  HeadContent,
+  Scripts,
+  createRootRoute,
+  type ErrorComponentProps,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import appCss from "../styles.css?url";
@@ -42,11 +47,12 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error }: { error: Error }) {
+function ErrorComponent({ error }: ErrorComponentProps) {
+  const message = error instanceof Error ? error.message : String(error);
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold text-red-600">エラー</h1>
-      <p>{error.message}</p>
+      <p>{message}</p>
     </div>
   );
 }
