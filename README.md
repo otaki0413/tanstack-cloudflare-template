@@ -34,7 +34,7 @@ After you create a repository from this template (or clone it):
 cd tanstack-cloudflare-template
 vp install        # Install dependencies
 vp run prepare    # Install Git hook dispatcher (also runs via prepare)
-vp dev            # Start the Vite+ / Wrangler dev server
+vp dev            # Start the Vite+ dev server
 ```
 
 The app is served at **http://localhost:5173/** (Vite's default). This template does not set `server.port`, so the port is 5173, not 3000.
@@ -68,7 +68,7 @@ After you change `wrangler.jsonc` (bindings, vars, compatibility flags, or simil
 vp run cf-typegen
 ```
 
-This updates `worker-configuration.d.ts`. Commit that file so CI can verify it with `wrangler types --check`.
+This updates `worker-configuration.d.ts`. Commit that file so CI can verify it with `vp run cf-typegen --check`.
 
 Access bindings and vars from server-side code:
 
@@ -84,22 +84,15 @@ See [Cloudflare bindings](https://developers.cloudflare.com/workers/runtime-apis
 
 ## Deploy
 
-1. Log in and confirm the account:
+A Cloudflare account is required. Authenticate with Wrangler as described in [TanStack Start hosting (Cloudflare)](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) and [Wrangler login](https://developers.cloudflare.com/workers/wrangler/commands/general/#login).
 
-```bash
-wrangler login
-wrangler whoami
-```
-
-2. Deploy:
+Then deploy:
 
 ```bash
 vp run deploy
 ```
 
-This runs the production build, then `wrangler deploy`.
-
-More: [TanStack Start hosting (Cloudflare)](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) and [Cloudflare: TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/).
+This runs the production build and deploys to Cloudflare Workers. See also [Cloudflare: TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/).
 
 ## Project Structure
 
