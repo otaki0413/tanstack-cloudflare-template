@@ -1,10 +1,10 @@
 # 公開直後の侵害された可能性のあるリリースを避けるため、公開から3日（4320分）経過したバージョンのみ許可する
 minimumReleaseAge: 4320
 
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
-  - workerd
+allowBuilds:
+  esbuild: true
+  workerd: true
+  sharp: true
 catalog:
   vite: npm:@voidzero-dev/vite-plus-core@0.3.2
   vite-plus: 0.3.2
