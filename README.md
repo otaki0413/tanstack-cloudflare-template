@@ -14,7 +14,7 @@ A template for SSR-ready React applications powered by TanStack Start and Cloudf
 
 ## Prerequisites
 
-- **Node.js**: CI uses 24.19.0 via `setup-vp`. Vite+ also supports current Node 20 / 22 / 24 releases.
+- **Node.js**: CI uses 24.19.0 via `setup-vp`. Vite+ requires Node.js 22.18+, 24.11+, or 26+. Git hooks (`vp staged`) require Node.js 22.22.1+, 24.11+, or 26+.
 - **pnpm**: provided by Vite+; see `packageManager` in `package.json`.
 - **Vite+ CLI** (`vp`):
 
