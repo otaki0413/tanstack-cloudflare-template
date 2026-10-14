@@ -28,7 +28,9 @@
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/
    */
-  // "vars": {  "MY_VARIABLE": "production_value" }
+  "vars": {
+    "GREETING": "Hello from Cloudflare Workers!",
+  },
   /**
    * Static Assets
    * Do not set `assets.directory` in this input config. The Cloudflare Vite
