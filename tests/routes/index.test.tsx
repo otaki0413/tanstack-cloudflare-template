@@ -1,12 +1,20 @@
+import { RouterProvider, createMemoryHistory } from "@tanstack/react-router";
 import { renderToString } from "react-dom/server";
-import { expect, test } from "vite-plus/test";
+import { expect, test, vi } from "vite-plus/test";
 
-import { Route } from "@/routes/index";
+import { getRouter } from "@/router";
 
-test("index route renders the greeting", () => {
-  const Component = Route.options.component;
-  expect(Component).toBeDefined();
+// Server functions need the Start/Workers runtime, so stub the one the loader calls.
+vi.mock("@/server/greeting", () => ({
+  getGreeting: () => Promise.resolve("Hello from the test!"),
+}));
 
-  const html = renderToString(Component ? <Component /> : null);
+test("index route renders the heading and the loader greeting", async () => {
+  const router = getRouter();
+  router.update({ history: createMemoryHistory({ initialEntries: ["/"] }) });
+  await router.load();
+
+  const html = renderToString(<RouterProvider router={router} />);
   expect(html).toContain("Hello World!");
+  expect(html).toContain("Hello from the test!");
 });
