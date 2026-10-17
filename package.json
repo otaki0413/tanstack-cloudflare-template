@@ -17,22 +17,22 @@
   "dependencies": {
     "@tanstack/react-router": "^1.170.44",
     "@tanstack/react-router-devtools": "^1.167.2",
-    "@tanstack/react-start": "^1.169.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "@tanstack/react-start": "^1.169.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.54.8",
+    "@cloudflare/vite-plugin": "1.64.0",
     "@tailwindcss/vite": "4.3.3",
-    "@types/node": "24.13.4",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.7",
-    "@vitejs/plugin-react": "6.1.1",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "wrangler": "4.131.1"
+    "wrangler": "4.151.0"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.14.0"
 }

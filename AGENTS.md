@@ -28,6 +28,6 @@ Non-obvious caveats for this environment:
   "Hello World!"). Unknown routes render the custom 404 component from
   `src/routes/__root.tsx`.
 
-- `vp test` / `pnpm test` uses Vitest with `passWithNoTests: true`, so it currently
-  exits 0 with no test files. Import `test` / `expect` from `vite-plus/test`, not
-  `vitest`. `vp build` builds both the client and SSR (workerd) bundles.
+- `vp test` / `pnpm test` uses Vitest and runs `*.test.ts(x)` files such as
+  `tests/routes/index.test.tsx` (`passWithNoTests: true` keeps it green if none
+  exist). Import `test` / `expect` from `vite-plus/test`, not `vitest`. `vp build` builds both the client and SSR (workerd) bundles.
