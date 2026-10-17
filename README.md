@@ -12,6 +12,13 @@ A template for SSR-ready React applications powered by TanStack Start and Cloudf
 - **Git Hooks**: Vite+ hooks (`vp staged` / `.vite-hooks`)
 - **Package Manager**: pnpm (via `vp install`)
 
+## Documentation
+
+- [TanStack Start docs](https://tanstack.com/start/latest/docs/framework/react/overview)
+- [TanStack Intent](https://tanstack.com/intent/latest/docs/overview)
+
+TanStack Intent is the CLI that loads the agent skills that ship with the installed TanStack packages. Day-to-day commands in this template stay `vp`.
+
 ## Prerequisites
 
 - **Node.js**: CI uses 24.19.0 via `setup-vp`. Vite+ requires Node.js 22.18+, 24.11+, or 26+. Git hooks (`vp staged`) require Node.js 22.22.1+, 24.11+, or 26+.
