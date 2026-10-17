@@ -1,3 +1,4 @@
+<!-- This range exists because Oxfmt 0.73.0 inserts three blank lines inside the Intent block. The next `pnpm exec intent install` deletes those lines, and `vp fmt --check` then fails. -->
 <!-- prettier-ignore-start -->
 <!-- intent-skills:start -->
 ## Skill Loading
