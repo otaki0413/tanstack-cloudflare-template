@@ -1,5 +1,18 @@
 # 公開直後の侵害された可能性のあるリリースを避けるため、公開から1日（1440分）経過したバージョンのみ許可する
+# 1440 は pnpm の既定値と同じだが、明示的に設定すると minimumReleaseAgeStrict が有効になる（既定値のままでは非 strict で、
+# 新しすぎるバージョンが警告なしに除外リストへ追加される）ため、この行は削除しないこと
 minimumReleaseAge: 1440
+# Vite+ ツールチェーン（vite-plus / @voidzero-dev/* と oxc の oxlint / oxfmt）は除外する。
+# vite-plus はこれらを完全一致のバージョンで同梱しており、Vite+ のリリースに追従するには同時に公開された版が必要になるため
+minimumReleaseAgeExclude:
+  - vite-plus
+  - "@voidzero-dev/*"
+  - oxlint
+  - "@oxlint/*"
+  - oxlint-tsgolint
+  - "@oxlint-tsgolint/*"
+  - oxfmt
+  - "@oxfmt/*"
 
 allowBuilds:
   esbuild: true
@@ -15,12 +28,3 @@ peerDependencyRules:
     - vite
   allowedVersions:
     vite: "*"
-minimumReleaseAgeExclude:
-  - vite-plus
-  - "@voidzero-dev/*"
-  - oxlint
-  - "@oxlint/*"
-  - oxlint-tsgolint
-  - "@oxlint-tsgolint/*"
-  - oxfmt
-  - "@oxfmt/*"
