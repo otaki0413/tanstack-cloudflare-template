@@ -12,6 +12,13 @@
     "enabled": true,
   },
   /**
+   * Source Maps
+   * Server source maps are uploaded privately on deploy so stack traces in Workers Logs
+   * point at the original source. They are never served as public assets. Set to false to opt out.
+   * https://developers.cloudflare.com/workers/observability/source-maps/
+   */
+  "upload_source_maps": true,
+  /**
    * Smart Placement
    * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
    */
