@@ -28,10 +28,11 @@ Non-obvious caveats for this environment:
 
 - Node / `vp` on PATH: ensure `~/.vite-plus/bin` is available (install with
   `curl -fsSL https://vite.plus | bash`). The default `/exec-daemon/node` is v22.14.0,
-  which is too old for some tooling; nvm's default is Node 22 (v22.23.2) and
-  `~/.bashrc` prepends that nvm bin (and Vite+ bin) to `PATH`. If a command reports
-  the old Node version, run `nvm use default` (or start a fresh shell). Project CI
-  uses Node 24.19.0 via `setup-vp`.
+  which is too old for this template, and nvm's default in this image is Node 22
+  (v22.23.2). `~/.bashrc` prepends that nvm bin (and Vite+ bin) to `PATH`. This
+  template requires Node.js 26 LTS. Before install, check, test, or build, run
+  `nvm install 26.13.0 && nvm use 26.13.0`. Project CI uses Node 26.13.0 via
+  `setup-vp`.
 
 - Git hooks: the project uses Vite+ hooks (`.vite-hooks/` + `prepare: vp config`).
   Cursor manages `core.hooksPath` via a custom agent-hooks path, so `vp hooks enable`

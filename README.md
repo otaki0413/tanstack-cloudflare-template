@@ -21,7 +21,7 @@ TanStack Intent is the CLI that loads the agent skills that ship with the instal
 
 ## Prerequisites
 
-- **Node.js**: CI uses 24.19.0 via `setup-vp`. Vite+ requires Node.js 22.18+, 24.11+, or 26+. Git hooks (`vp staged`) require Node.js 22.22.1+, 24.11+, or 26+.
+- **Node.js**: This template requires Node.js 26 LTS (`engines.node` is `>=26`). CI uses 26.13.0 via `setup-vp`. Vite+ itself supports Node.js 22.18+, 24.11+, or 26+, and its Git hooks (`vp staged`) support Node.js 22.22.1+, 24.11+, or 26+; this template does not.
 - **pnpm**: provided by Vite+; see `packageManager` in `package.json`.
 - **Vite+ CLI** (`vp`):
 
