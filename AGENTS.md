@@ -31,7 +31,7 @@ Non-obvious caveats for this environment:
   which is too old for this template, and nvm's default in this image is Node 22
   (v22.23.2). `~/.bashrc` prepends that nvm bin (and Vite+ bin) to `PATH`. This
   template requires Node.js 26 LTS. Before install, check, test, or build, run
-  `nvm install 26.13.0 && nvm use 26.13.0`. Project CI uses Node 26.13.0 via
+  `nvm install 26.13.1 && nvm use 26.13.1`. Project CI uses Node 26.13.1 via
   `setup-vp`.
 
 - Git hooks: the project uses Vite+ hooks (`.vite-hooks/` + `prepare: vp config`).
